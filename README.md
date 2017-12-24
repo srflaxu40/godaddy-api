@@ -12,7 +12,7 @@ your records for your domain.
 
 ## Development Setup
 
-* `Install [Golang](https://golang.org/doc/install#install).`
+* Install [Golang](https://golang.org/doc/install#install).
   -  This was done using v1.9.2 for Darwin.
 
 * Ensure you have a GoDaddy account in some form.  Follow [this document](https://developer.godaddy.com/getstarted).
