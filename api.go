@@ -9,12 +9,7 @@ import (
          "os"
 )
 
-type api struct {
-    key, secret string
-}
-
-
-// Get domain details.  Return json.
+// Get domain details.  Return json results.
 func GetDomains() string {
 
     req, err := http.NewRequest("GET", os.ExpandEnv("https://api.godaddy.com/v1/domains/${DOMAIN}"), nil)
@@ -49,11 +44,14 @@ func GetDomains() string {
 
 }
 
-func GetRecords() string {
 
-    recordArr := [6]string{"A", "AAAA", "CNAME", "TXT", "NS"}
+// Get all records of type: A, AAAA, CNAME, TXT, and NS.
+// return array of type string results.
+func GetRecords() [5]string {
 
-    bodyString := ""
+    recordArr := [5]string{"A", "AAAA", "CNAME", "TXT", "NS"}
+
+    var resultArr [5]string
 
     for i := 0; i <= len(recordArr)-1; i++ {
 
@@ -75,9 +73,7 @@ func GetRecords() string {
           fmt.Printf("%s", err2)
       }
 
-      bodyString += string(bodyBytes)
-
-      //fmt.Printf("%s\n", bodyString)
+      resultArr[i] = string(bodyBytes)
 
       if err != nil {
           // handle err
@@ -86,7 +82,7 @@ func GetRecords() string {
 
    }
    
-   return bodyString
+   return resultArr
 }
 
 
