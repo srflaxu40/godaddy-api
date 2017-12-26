@@ -22,5 +22,12 @@ your records for your domain.
 
 * Generate your GoDaddy API [keys](https://developer.godaddy.com/keys/).
 
+* *Export* your enviroment (your domain must be hosted by GoDaddy):
+
+```
+export DOMAIN=someownedgoddaddydomain.com
+export API_KEY=<your api key>
+export SECRET_KEY=<your secret key>
+```
 
 
